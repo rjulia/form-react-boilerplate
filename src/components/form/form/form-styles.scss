@@ -1,0 +1,25 @@
+@use "../../../theme/_global.scss"as *;
+@use "../../../theme/theme.scss"as *;
+
+.form {
+  &__container {
+    .col-12 {
+     position: relative;
+    }
+    
+
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 30px;
+    color: $text;
+  }
+  &__content__titles {
+    margin-top: 35px;
+  }
+  &__button {
+    margin-top: 0;
+  }
+}
