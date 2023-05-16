@@ -2,24 +2,30 @@ import React from 'react'
 import { Formik, Form } from 'formik'
 import _ from 'lodash'
 import Button from '../../button'
-import FormikField from '../form-input/index.jsx'
+import FormikField from '../form-input/index.js'
 import FormikFieldTextArea from '../form-textarea/index.jsx'
 import FormikFieldSelect from '../form-select/index.jsx'
 import DropZone from '../../drop-zone'
 import './form-styles.scss'
 
-/**
- * LoginFormikComponents Component
- */
+import {
+  FormFieldsType,
+  ObjectOfAnyType,
+  PropsType,
+} from './type.js'
+
+
 const LoginFormikComponents = ({
   validationSchema,
   initialValues,
   onHandelSubmit,
   formFields,
   isBeingSent,
-  t,
-}) => {
-  const onSubmit = (values) => {
+  
+}: PropsType<any>
+
+) => {
+  const onSubmit = (values: ObjectOfAnyType) => {
     onHandelSubmit(values)
   }
   return (
@@ -33,7 +39,7 @@ const LoginFormikComponents = ({
 
           <div className="row form__container">
             {
-              _.map(formFields, (field, idx) => {
+              _.map(formFields, (field: FormFieldsType) => {
                 let f
                 switch (field.formType) {
                   case 'title':
@@ -42,16 +48,17 @@ const LoginFormikComponents = ({
                     </div>
                     break
                   case 'field':
-                    f = <div className={field.class} key={field.name}>
+                    f = 
                       <FormikField
+                        key={field.name}
                         label={field.label}
                         name={field.name}
                         type={field.type}
                         text={field.text}
                         placeholder={field.placeholder}
                         comp={field.comp}
+                        className={field.class}
                       />
-                    </div>
                     break
                   case 'textarea':
                     f = <div className={field.class} key={field.name}>
@@ -94,7 +101,7 @@ const LoginFormikComponents = ({
                 disabled={!(formik.isValid && formik.dirty) || isBeingSent}
                 big
 
-                text={t('contact.button')}
+                text={'SUBMIT'}
                 type="submit"
               />
 

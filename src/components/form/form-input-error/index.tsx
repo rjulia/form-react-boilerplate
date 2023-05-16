@@ -1,12 +1,11 @@
-import React from 'react'
 import { ErrorMessage } from 'formik'
 
 /**
  * FormikErrorMessage Component
  */
-const FormikErrorMessage = ({ name }) => (
+const FormikErrorMessage = ({ name }: {name:string}) => (
   <ErrorMessage name={name}>
-    {(errMessage) => <div className="field__error">{errMessage}</div>}
+    {(errMessage:string) => <div className="field__error">{errMessage}</div>}
   </ErrorMessage>
 )
 
