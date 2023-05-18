@@ -1,4 +1,3 @@
-import React from 'react'
 import { Formik, Form } from 'formik'
 import _ from 'lodash'
 import Button from '../../button'
@@ -65,8 +64,7 @@ const LoginFormikComponents = ({
                       <FormikFieldTextArea
                         label={field.label}
                         name={field.name}
-                        type={field.type}
-                        row={field.row}
+                        rows={field.rows}
                       />
                     </div>
                     break
@@ -99,8 +97,6 @@ const LoginFormikComponents = ({
             <div className="form__button">
               <Button
                 disabled={!(formik.isValid && formik.dirty) || isBeingSent}
-                big
-
                 text={'SUBMIT'}
                 type="submit"
               />

@@ -4,21 +4,21 @@ export interface FormFieldsType {
   class: string | undefined
   title?: string
   label?: string
-  name?: string
+  name: string
   type?: string
   text?: string
   placeholder?: string
   comp?: React.FunctionComponent<any>
-  row?: number
-  options?: Array<any>
+  rows?: number
+  options?: Array<{value: string, label: string}>
 }
 export type ObjectOfAnyType = {
-  [key: string]: any
+  [key: string]: string
 }
 
 export interface PropsType<T> {
   validationSchema: any
-  initialValues: any
+  initialValues: ObjectOfAnyType
   onHandelSubmit: (values: ObjectOfAnyType) => void
   formFields: Array<FormFieldsType>
   isBeingSent: boolean

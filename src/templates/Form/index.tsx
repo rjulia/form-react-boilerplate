@@ -1,8 +1,25 @@
+import { Form } from "../../components/form"
 
-function Form() {
+function FormPage() {
+  const initialValues = {}
+  const validationSchema = {}
+  const onHandelSubmit = () => {}
+  const formFields = []
+  const isBeingSent = false
+
   return (
-    <div>Form</div>
+    <div>
+      <h1>Form Page</h1>
+      <Form
+        validationSchema={validationSchema}
+        initialValues={initialValues}
+        onHandelSubmit={onHandelSubmit}
+        formFields={formFields}
+        isBeingSent={isBeingSent}
+      />
+      
+    </div>
   )
 }
 
-export default Form
+export default FormPage

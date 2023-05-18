@@ -6,8 +6,8 @@ import './form-input-styles.scss'
  * FormikField Component
  */
 
-interface PropsType<T> {
-  name?: string
+interface FieldPropsType<T> {
+  name: string
   type?: string
   label?: string
   text?: string
@@ -18,7 +18,7 @@ interface PropsType<T> {
 
 function FormikField<T>({
   name, type, label, text, placeholder, comp, className,
-}: PropsType<T> & React.HTMLAttributes<HTMLDivElement>) {
+}: FieldPropsType<T> & React.HTMLAttributes<HTMLDivElement>) {
   const Component = comp as React.FunctionComponent
   return (
     <div className={className} >

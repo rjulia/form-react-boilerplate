@@ -1,25 +1,37 @@
-import React from 'react'
-import { Field } from 'formik'
-import FormikErrorMessage from '../form-input-error/index.jsx'
+import { Field, FieldProps } from 'formik'
+import FormikErrorMessage from '../form-input-error/index.js'
 import '../form-input/form-input-styles.scss'
 
 /**
  * FormikField Component
  */
-const FormikFieldTextArea = ({
-  name, type, label, row, placeholder,
-}) => (
+
+type InputProps = { // The common Part
+  className?: string;
+  placeholder?: string;
+  rows?: number;
+  cols?: number;
+  value?: string;
+  name: string;
+  label?: string;
+  text?: string;
+}
+
+function FormikFieldTextArea({
+  name, label, rows, placeholder,
+}: InputProps) {
+  
+  return (
   <Field name={name}>
-    {(formikField) => (
+    {(formikField: FieldProps) => (
       <>
         <label htmlFor={name} style={{ display: 'block' }}>
           {label}
         </label>
         <textarea
-          type={type}
           id={name}
           placeholder={placeholder}
-          row={row}
+          rows={rows}
           className="text-area"
           {...formikField.field}
         />
@@ -29,5 +41,6 @@ const FormikFieldTextArea = ({
     )}
   </Field>
 )
+    }
 
 export default FormikFieldTextArea

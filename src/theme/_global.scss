@@ -1,0 +1,295 @@
+@use "./theme.scss"as *;
+@use "./typography"as *;
+@import "./mixin";
+
+$minvalue: 30;
+// $width: calc(100vw - #{$minvalue});
+// html {
+//   font-size: 16px;
+//   line-height: 22px;
+// }
+// @media screen and (min-width: 320px) {
+//   html {
+//     font-size: calc(16px + 16 * ((100vw - 320px) / (1024 - 320)));
+//     line-height: calc(16px + 16 * ((100vw - 320px) / (1024 - 320)));
+//   }
+// }
+// @media screen and (min-width: 1024px) {
+//   html {
+//     font-size: 24px;
+//     line-height: 26px;
+//   }
+// }
+
+.row {
+  
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: $text;
+  font-size: 16px;
+
+  &.is-open-menu {
+    overflow: hidden;
+    @media (min-width: $desktop) {
+      overflow: hidden;
+    }
+  }
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: $primary;
+  font-weight: bold;
+
+  &:hover {
+    color: $azure;
+  }
+}
+
+.title-color {
+  color: $secondary;
+}
+
+// #TODO rich text, if I place all in rich-text it doesn't link with the classname (pages for example)
+
+.rich-text {
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Gilroy", sans-serif;
+    color: $primary;
+    font-weight: bold;
+    margin-bottom: 24px;
+    .blue {
+      color: $secondary;
+    }
+  }
+
+  h1 {
+
+  }
+
+  h2 {
+    font-size: 35px;
+    line-height: 40px;
+    letter-spacing: 0;
+  }
+
+  h3 {
+    font-size: 25px;
+    line-height: 26px;
+  }
+
+  h4 {
+    font-size: 22px;
+    line-height: 29px;
+  }
+
+  p {
+    color: $text;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 30px;
+    font-weight: normal;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    color: $text;
+    word-wrap: break-word;
+  }
+
+  ul,
+  ol {
+    padding-left: 20px;
+    margin: 20px 0;
+
+    li {
+      position: relative;
+      color: $text;
+      font-size: 16px;
+      line-height: 28px;
+      font-weight: 400;
+
+      &:before {
+        position: absolute;
+        content: "";
+        background-color: $secondary;
+        top: 11px;
+        left: -18px;
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  a {
+    color: $primary;
+
+    &:hover {
+      color: $azure;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    h1 {
+      font-size: 5rem;
+      line-height: 5.25rem;
+    }
+
+    h2 {
+      font-size: 45px;
+      line-height: 52.5px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      font-size: 34px;
+      line-height: 39px;
+    }
+
+    h4 {
+      font-size: 24px;
+      line-height: 29px;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $title;
+  color: $primary;
+  font-weight: bold;
+  margin-bottom: 18px;
+  @media (min-width: $desktop) {
+    margin-bottom: 24px;
+  }
+}
+
+h1 {
+  font-size: 55px;
+  line-height: 68px;
+}
+
+h2 {
+  font-size: 35px;
+  line-height: 40px;
+  letter-spacing: 0;
+}
+
+h3 {
+  font-size: 25px;
+  line-height: 26px;
+}
+
+h4 {
+  font-size: 22px;
+  line-height: 29px;
+}
+
+p {
+  color: $text;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 30px;
+  font-weight: normal;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+ul,
+ol {
+  padding-left: 40px;
+  margin: 20px 0;
+
+  li {
+    position: relative;
+    color: $text;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 400;
+
+    &:before {
+      position: absolute;
+      content: "";
+      top: 40%;
+      left: -12px;
+      width: 6px;
+      height: 6px;
+      border-radius: 3px;
+    }
+  }
+}
+
+a {
+  color: $primary;
+
+  &:hover {
+    color: $azure;
+  }
+}
+
+@media (min-width: $desktop) {
+  h1 {
+    font-size: 80px;
+    line-height: 100px;
+  }
+
+  h2 {
+    font-size: 45px;
+    line-height: 52.5px;
+    letter-spacing: 0;
+  }
+
+  h3 {
+    font-size: 34px;
+    line-height: 39px;
+  }
+
+  h4 {
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+
+.largeTitle {
+  @extend h1;
+}
+
+.own-paginator {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  .paginator .page-item  {
+    border-color: $lightGray;
+    border-radius: 0;
+  }
+  .paginator .page-item a.page-link {
+    color: $primary;
+  }
+  .paginator .page-item.active a.page-link {
+    border-color: $azure;
+    background-color: $azure;
+    color: $white;
+  }
+  .page-item:last-child .page-link,
+  .page-item:first-child .page-link {
+    border-radius: 0;
+  }
+}
+.slick-prev:before {
+  content: '';
+}
+.slick-next:before {
+  content: '';
+}
