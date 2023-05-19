@@ -1,8 +1,8 @@
-import React, { useState, useCallback, SetStateAction } from 'react'
+import { useState, useCallback } from 'react'
 import _ from 'lodash'
 import { useDropzone, Accept } from 'react-dropzone'
-import IconTrash from '../../assets/icons/seasongroup_icons_trash.svg'
-import './drop-zone-style.scss'
+import { ReactComponent as MyIcon } from '../../assets/icons/seasongroup_icons_trash.svg'
+import { IconSvg } from '../icon'
 
 type File = {
   path?: string
@@ -13,9 +13,9 @@ type File = {
   lastModifiedDate: Date
 }
 interface DropzoneProps {
-  accept: Accept;
+  accept?: Accept;
   setFieldValue: (name: string, acceptedFiles: File[] | null | undefined) => Promise<void> | void;
-  label: string;
+  label?: string;
   name: string;
 }
 
@@ -48,7 +48,11 @@ function Dropzone({
 
   const files = myFiles?.map((file:File) => (
     <li className="dropzone__list__item" key={file?.path}>
-      <span>{file?.path} - {_.floor(file.size / 1000) } KB</span> <span className="dropzone__trash" onClick={() => removeFile(file)}><IconTrash width={14} fill={'#1B1E60'}/></span>
+      <span>{file?.path} - {_.floor(file.size / 1000) } KB</span> 
+      <span className="dropzone__trash" onClick={() => removeFile(file)}>
+        <IconSvg width={14} fill={'#1B1E60'} svg={MyIcon} />
+      </span>
+        
     </li>
   ))
 

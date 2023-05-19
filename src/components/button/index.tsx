@@ -1,7 +1,6 @@
-import './button-style.scss'
 
 interface PropsType {
-  text: string
+  text?: string
   onClick?: () => void
   light?: boolean
   disabled?: boolean
@@ -19,7 +18,7 @@ function Button({
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className="button"
+      className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
     >
       <span>{text}</span>
     </button>

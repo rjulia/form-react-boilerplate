@@ -5,7 +5,6 @@ import FormikField from '../form-input/index.js'
 import FormikFieldTextArea from '../form-textarea/index.jsx'
 import FormikFieldSelect from '../form-select/index.jsx'
 import DropZone from '../../drop-zone'
-import './form-styles.scss'
 
 import {
   FormFieldsType,
@@ -85,8 +84,18 @@ const LoginFormikComponents = ({
                         label={field.label}
                         name={field.name}
                         setFieldValue={formik.setFieldValue}
+                        accept={field.accept}
                       />
                     </div>
+                    break
+                    case 'button':
+                    f = <div className="form__button" key={field.name}>
+                    <Button
+                      disabled={!(formik.isValid && formik.dirty) || isBeingSent}
+                      text={field.label}
+                      type="submit"
+                    />
+                  </div>
                     break
                   default:
                     break
@@ -94,14 +103,7 @@ const LoginFormikComponents = ({
                 return f
               })
             }
-            <div className="form__button">
-              <Button
-                disabled={!(formik.isValid && formik.dirty) || isBeingSent}
-                text={'SUBMIT'}
-                type="submit"
-              />
-
-            </div>
+            
           </div>
           {/* <pre>{JSON.stringify(formik, null, 4)}</pre> */}
         </Form>

@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react'
 import { Field } from 'formik'
-import Select, { Options, ActionMeta, SingleValue, OnChangeValue } from 'react-select'
+import Select, { SingleValue } from 'react-select'
 import FormikErrorMessage from '../form-input-error/index.js'
-import '../form-input/form-input-styles.scss'
-import customStyles from './customSelectDropdown.js'
+import {customStyles} from './customSelectDropdown.js'
 
 type OptionType = {
   value?: string
@@ -22,6 +21,10 @@ interface FieldSelectPropsType<T> {
   options: Array<OptionType> | undefined
 }
 
+type FormState = {
+  fruit: OptionType | null;
+};
+
 function SelectField({
   options,
   field,
@@ -32,7 +35,7 @@ function SelectField({
   field: { name: string, value: string, onBlur: () => void }
   form: { setFieldValue: (
     field: string,
-    value?: string,
+    value?: string | number | boolean | Record<string, unknown> | undefined
   ) => void | undefined}
   placeholder: string,
 }) {
@@ -41,7 +44,7 @@ function SelectField({
     if (selected === null || selected === "") {
       return;
     }
-    return form.setFieldValue(field.name, selected?.value || selected)
+    return form.setFieldValue(field.name, selected)
   }
 
   return (
@@ -52,7 +55,7 @@ function SelectField({
     value={options ? options.find((option:OptionType) => option.value === field.value) : ''}
     onChange={OnChangeValue}
     onBlur={field.onBlur}
-    styles={customStyles}
+    // styles={customStyles}
   />
 )
   }

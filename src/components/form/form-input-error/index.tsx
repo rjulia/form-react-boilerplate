@@ -5,7 +5,7 @@ import { ErrorMessage } from 'formik'
  */
 const FormikErrorMessage = ({ name }: {name:string}) => (
   <ErrorMessage name={name}>
-    {(errMessage:string) => <div className="field__error">{errMessage}</div>}
+    {(errMessage:string) => <div className="text-[10px] text-red-400">{errMessage}</div>}
   </ErrorMessage>
 )
 

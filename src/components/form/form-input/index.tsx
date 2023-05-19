@@ -1,10 +1,5 @@
 import { Field, FieldProps } from 'formik'
 import FormikErrorMessage from '../form-input-error/index.jsx'
-import './form-input-styles.scss'
-
-/**
- * FormikField Component
- */
 
 interface FieldPropsType<T> {
   name: string

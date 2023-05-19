@@ -1,4 +1,5 @@
 
+import {  Accept } from 'react-dropzone'
 export interface FormFieldsType {
   formType: string
   class: string | undefined
@@ -11,6 +12,7 @@ export interface FormFieldsType {
   comp?: React.FunctionComponent<any>
   rows?: number
   options?: Array<{value: string, label: string}>
+  accept?: Accept
 }
 export type ObjectOfAnyType = {
   [key: string]: string

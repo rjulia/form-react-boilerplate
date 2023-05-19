@@ -1,36 +1,43 @@
 /* eslint-disable no-unused-vars */
-const customStyles = {
-  option: (styles, {
-    data, isDisabled, isFocused, isSelected,
-  }) => ({
-    ...styles,
-    backgroundColor: isFocused ? '#018AFF' : null,
-    color: isFocused ? '#fff' : '#3b3b3b',
-  }),
-  indicatorsContainer: (provided, state) => ({
+import { 
+  StylesConfig,
+  OptionProps
+} from 'react-select';
+
+
+export const customStyles = <OptionType extends OptionProps, IsMulti extends boolean>(
+): StylesConfig<OptionType, IsMulti> => ({
+  // option: (styles, {
+  //   isFocused,
+  // }) => ({
+  //   ...styles,
+  //   backgroundColor: isFocused ? '#018AFF' : null,
+  //   color: isFocused ? '#fff' : '#3b3b3b',
+  // }),
+  indicatorsContainer: (provided) => ({
     ...provided,
     backgroundColor: 'transparent',
     border: 'none',
   }),
-  indicatorSeparator: (provided, state) => ({
+  indicatorSeparator: (provided) => ({
     ...provided,
     display: 'none',
   }),
-  menu: (provided, state) => ({
+  menu: (provided) => ({
     ...provided,
     fontFamily: "'Manrope Regular', sans-serif",
     borderRadius: 0,
     background_color: '#f2f',
   }),
-  menuList: (provided, state) => ({
+  menuList: (provided) => ({
     ...provided,
     padding: 0,
   }),
-  valueContainer: (provided, state) => ({
+  valueContainer: (provided) => ({
     ...provided,
     padding: 0,
   }),
-  placeholder: (provided, state) => ({
+  placeholder: (provided) => ({
     ...provided,
     color: '#C3C3C3',
     fontSize: '14px',
@@ -38,19 +45,19 @@ const customStyles = {
     // padding: '12px 0 0',
     fontFamily: "'Manrope Regular', sans-serif",
   }),
-  input: (provided, state) => ({
+  input: (provided) => ({
     ...provided,
     maxHeight: '33px',
     fontFamily: "'Manrope Regular', sans-serif",
   }),
-  singleValue: (provided, state) => ({
+  singleValue: (provided) => ({
     ...provided,
     fontFamily: "'Manrope Regular', sans-serif",
     lineHeight: '23px',
     fontSize: '16px',
     padding: '8px 0 0',
   }),
-  control: (provided, state) => ({
+  control: (provided) => ({
     ...provided,
     minHeight: '50px',
     backgroundColor: 'transparent',
@@ -62,6 +69,4 @@ const customStyles = {
     // none of react-select's styles are passed to <Control />
     width: '100%',
   }),
-}
-
-export default customStyles
+})
