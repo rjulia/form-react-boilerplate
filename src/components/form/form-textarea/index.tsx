@@ -17,13 +17,13 @@ type InputProps = { // The common Part
 }
 
 function FormikFieldTextArea({
-  name, label, rows, placeholder,
+  name, label, rows, placeholder,className
 }: InputProps) {
   
   return (
   <Field name={name}>
     {(formikField: FieldProps) => (
-      <>
+      <div className={className} >
         <label htmlFor={name} style={{ display: 'block' }}>
           {label}
         </label>
@@ -31,12 +31,12 @@ function FormikFieldTextArea({
           id={name}
           placeholder={placeholder}
           rows={rows}
-          className="text-area"
+          className="w-full border border-gray-400 rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-50"
           {...formikField.field}
         />
         <FormikErrorMessage name={name} />
         {/* <pre>{JSON.stringify(formikField, null, 4)}</pre> */}
-      </>
+      </div>
     )}
   </Field>
 )

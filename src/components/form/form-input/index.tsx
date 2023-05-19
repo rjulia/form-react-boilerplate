@@ -23,7 +23,7 @@ function FormikField<T>({
             <label htmlFor={name} style={{ display: 'block' }}>
               {label}
             </label>
-            <div className={text && 'text-checkbox'}>
+            <div className="border border-gray-400 rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-50">
               <input
                 type={type}
                 id={name}

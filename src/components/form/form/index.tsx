@@ -35,7 +35,7 @@ const LoginFormikComponents = ({
       {(formik) => (
         <Form>
 
-          <div className="row form__container">
+          <div className="grid grid-cols-2 gap-4">
             {
               _.map(formFields, (field: FormFieldsType) => {
                 let f
@@ -59,24 +59,26 @@ const LoginFormikComponents = ({
                       />
                     break
                   case 'textarea':
-                    f = <div className={field.class} key={field.name}>
-                      <FormikFieldTextArea
+                    f = <FormikFieldTextArea
+                        key={field.name}
                         label={field.label}
                         name={field.name}
                         rows={field.rows}
+                        placeholder={field.placeholder}
+                        className={field.class}
                       />
-                    </div>
                     break
                   case 'select':
-                    f = <div className={field.class} key={field.name}>
-                      <FormikFieldSelect
+                    f = <FormikFieldSelect
+                        key={field.name}
                         label={field.label}
                         name={field.name}
                         type={field.type}
                         placeholder={field.placeholder}
                         options={field.options}
+                        className={field.class}
                       />
-                    </div>
+                    
                     break
                   case 'drop':
                     f = <div className={field.class} key={field.name}>

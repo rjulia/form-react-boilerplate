@@ -69,9 +69,10 @@ function FormikFieldSelect<T>({
   label, 
   options, 
   placeholder,
+  className,
 }: FieldSelectPropsType<T>) {
   return (
-    <React.Fragment>
+    <div className={className}>
       <label htmlFor={name} style={{ display: 'block' }}>
         {label}
       </label>
@@ -84,7 +85,7 @@ function FormikFieldSelect<T>({
         placeholder={placeholder}
       />
       <FormikErrorMessage name={name} />
-    </React.Fragment>
+    </div>
   )
 }
 
