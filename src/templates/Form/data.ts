@@ -72,6 +72,7 @@ const formFields: Array<FormFieldsType> = [
     className: styles['file'],
     accept: {
       'image/png': ['.png'],
+      'image/jpeg': ['.jpg', '.jpeg'],
     },
   },
   {

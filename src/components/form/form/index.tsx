@@ -1,4 +1,4 @@
-import { Formik, Form } from 'formik'
+import { Formik, Form, FormikProps } from 'formik'
 import _ from 'lodash'
 import Button from '../../button'
 import FormikField from '../form-input/index.js'
@@ -32,7 +32,6 @@ const Block = ({ field, ...rest }: {
 }) => {
 
   const Component = lookup[field.formType]
-  console.log("🚀 ~ file: index.tsx:36 ~ Component:", field.formType)
   const props = { ...field, ...rest }
   return <Component {...props} />
 }
@@ -67,6 +66,7 @@ const LoginFormikComponents = ({
                   field,
                   formik,
                   isBeingSent,
+                  onSubmit,
                 }
                 return <Block key={field.name} {...viewProps} />
               })

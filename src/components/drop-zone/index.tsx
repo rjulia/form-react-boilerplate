@@ -1,10 +1,12 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
+import { FormikProps } from 'formik'
 import _ from 'lodash'
 import { useDropzone, Accept } from 'react-dropzone'
 import { ReactComponent as MyIcon } from '../../assets/icons/seasongroup_icons_trash.svg'
 import { IconSvg } from '../icon'
+import { ObjectOfAnyType } from '../form/form/type'
 
-type File = {
+interface File  extends Blob{
   path?: string
   size: number
   type: string
@@ -14,7 +16,7 @@ type File = {
 }
 interface DropzoneProps {
   accept: Accept | undefined;
-  setFieldValue: (name: string, acceptedFiles: File[] | null | undefined) => Promise<void> | void;
+  formik: FormikProps<ObjectOfAnyType>;
   label?: string;
   name: string;
   className: { [
@@ -27,16 +29,25 @@ interface DropzoneProps {
 
 function Dropzone({
   accept,
-  setFieldValue,
+  formik,
   label,
   name,
   className,
 }: DropzoneProps) {
-  const [myFiles, setMyFiles] = useState<File[] | null>([])
-  const onDrop = useCallback((acceptedFiles: Blob[]) => {
-    setMyFiles((preState)=> [...preState, ...acceptedFiles])
-    setFieldValue('files', [...myFiles, ...acceptedFiles])
-  }, [myFiles, setFieldValue])
+  const [myFiles, setMyFiles] = useState<File[] | null >(null)
+  const onDrop = useCallback((acceptedFiles:any) => {
+    setMyFiles((preState)=> {
+      if (preState) {
+        return [...[preState], ...acceptedFiles]
+      }
+      return acceptedFiles
+    })
+  }, [])
+  
+  
+  useEffect(() => {
+    formik.setFieldValue('files', myFiles)
+  }, [myFiles])
 
   const {
     getRootProps, getInputProps, isDragActive,
@@ -46,7 +57,7 @@ function Dropzone({
   })
 
   const removeFile = (file: File) => {
-    const newFiles = [...myFiles]
+    const newFiles = JSON.parse(JSON.stringify(myFiles))
     newFiles.splice(newFiles.indexOf(file), 1)
     setMyFiles(newFiles)
   }

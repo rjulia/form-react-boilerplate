@@ -5,7 +5,6 @@ interface FieldPropsType {
   name: string
   type?: string
   label?: string
-  text?: string
   className: {
     [key: string] : string | undefined 
   }
@@ -16,7 +15,6 @@ function FormikField({
   name, 
   type, 
   label, 
-  text, 
   placeholder, 
   className,
 }: FieldPropsType) {
@@ -29,25 +27,16 @@ function FormikField({
             <label htmlFor={name} className={className.text}>
               {label}
             </label>
-            <div className={className.containerInput}>
-              <input
-                type={type}
-                id={name}
-                className={className.input}
-                placeholder={placeholder}
-                {...formikField.field}
-                defaultChecked={formikField.field.value}
-              />
-              {
-                text && (
-                  <div
-                    className="rich-text"
-                    dangerouslySetInnerHTML={{
-                      __html: text,
-                    }} />
-                )
-              }
-            </div>
+           
+            <input
+              type={type}
+              id={name}
+              className={className.input}
+              placeholder={placeholder}
+              {...formikField.field}
+              defaultChecked={formikField.field.value}
+            />
+              
             <FormikErrorMessage name={name} cls={className.error} />
             {/* <pre>{JSON.stringify(formikField, null, 4)}</pre> */}
           </>

@@ -6,8 +6,8 @@ import {
 import formFields from './data'
 
 const contactFormSchema = Yup.object().shape({
-  name: Yup.string().required('Required'),
-  email: Yup.string().email('Invalid email').required('Required'),
+  // name: Yup.string().required('Required'),
+  // email: Yup.string().email('Invalid email').required('Required'),
 })
 
 
@@ -15,7 +15,8 @@ const contactFormSchema = Yup.object().shape({
 function FormPage() {
   const initialValues = {
     name: '',
-    email: ''
+    email: '',
+    files: '',
   }
   const onHandelSubmit = (values: ObjectOfAnyType) => {
     console.log('onHandelSubmit', values)

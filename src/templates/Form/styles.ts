@@ -5,9 +5,9 @@ export const styles = {
   },
   'field': {
       container: '',
-      containerInput: 'border border-cyan-700  rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-50',
+      containerInput: '',
       text: 'font-light text-cyan-500 text-sm',
-      input: 'font-normal text-gray-700 text-sm',
+      input: 'font-normal text-gray-700 text-sm w-full border border-gray-400 rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-50',
       error: 'font-normal text-red-500 text-xs block mt-2',
   },
   'message': {
