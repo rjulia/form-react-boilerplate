@@ -1,32 +1,39 @@
 import { Field, FieldProps } from 'formik'
 import FormikErrorMessage from '../form-input-error/index.jsx'
 
-interface FieldPropsType<T> {
+interface FieldPropsType {
   name: string
   type?: string
   label?: string
   text?: string
-  className: string | undefined
+  className: {
+    [key: string] : string | undefined 
+  }
   placeholder?: string
-  comp?: React.FunctionComponent<T>
 }
 
-function FormikField<T>({
-  name, type, label, text, placeholder, comp, className,
-}: FieldPropsType<T> & React.HTMLAttributes<HTMLDivElement>) {
-  const Component = comp as React.FunctionComponent
+function FormikField({
+  name, 
+  type, 
+  label, 
+  text, 
+  placeholder, 
+  className,
+}: FieldPropsType) {
+
   return (
-    <div className={className} >
+    <div className={className.container} >
       <Field name={name}>
         {(formikField: FieldProps) => (
           <>
-            <label htmlFor={name} style={{ display: 'block' }}>
+            <label htmlFor={name} className={className.text}>
               {label}
             </label>
-            <div className="border border-gray-400 rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-50">
+            <div className={className.containerInput}>
               <input
                 type={type}
                 id={name}
+                className={className.input}
                 placeholder={placeholder}
                 {...formikField.field}
                 defaultChecked={formikField.field.value}
@@ -40,11 +47,8 @@ function FormikField<T>({
                     }} />
                 )
               }
-              {
-                comp && <Component />
-              }
             </div>
-            <FormikErrorMessage name={name} />
+            <FormikErrorMessage name={name} cls={className.error} />
             {/* <pre>{JSON.stringify(formikField, null, 4)}</pre> */}
           </>
         )}

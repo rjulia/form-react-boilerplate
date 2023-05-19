@@ -11,6 +11,7 @@ import {
   ObjectOfAnyType,
   PropsType,
 } from './type.js'
+import Title from '../../title/index.js'
 
 
 const LoginFormikComponents = ({
@@ -41,9 +42,7 @@ const LoginFormikComponents = ({
                 let f
                 switch (field.formType) {
                   case 'title':
-                    f = <div className={field.class} key={field.name}>
-                      <h3 className="form__title">{field.title}</h3>
-                    </div>
+                    f = <Title key={field.name} text={field.text} className={field.className} />
                     break
                   case 'field':
                     f = 
@@ -54,8 +53,7 @@ const LoginFormikComponents = ({
                         type={field.type}
                         text={field.text}
                         placeholder={field.placeholder}
-                        comp={field.comp}
-                        className={field.class}
+                        className={field.className}
                       />
                     break
                   case 'textarea':
@@ -65,7 +63,7 @@ const LoginFormikComponents = ({
                         name={field.name}
                         rows={field.rows}
                         placeholder={field.placeholder}
-                        className={field.class}
+                        className={field.className}
                       />
                     break
                   case 'select':
@@ -76,28 +74,31 @@ const LoginFormikComponents = ({
                         type={field.type}
                         placeholder={field.placeholder}
                         options={field.options}
-                        className={field.class}
+                        className={field.className}
                       />
                     
                     break
                   case 'drop':
-                    f = <div className={field.class} key={field.name}>
+                    f =
                       <DropZone
                         label={field.label}
                         name={field.name}
                         setFieldValue={formik.setFieldValue}
                         accept={field.accept}
+                        className={field.className}
+                        key={field.name}
                       />
-                    </div>
                     break
                     case 'button':
-                    f = <div className="form__button" key={field.name}>
+                    f = 
                     <Button
+                      key={field.name}
                       disabled={!(formik.isValid && formik.dirty) || isBeingSent}
                       text={field.label}
                       type="submit"
+                      className={field.className}
                     />
-                  </div>
+
                     break
                   default:
                     break

@@ -3,9 +3,11 @@ import { ErrorMessage } from 'formik'
 /**
  * FormikErrorMessage Component
  */
-const FormikErrorMessage = ({ name }: {name:string}) => (
+const FormikErrorMessage = (
+  { name, cls }: {name:string, cls:string | undefined
+}) => (
   <ErrorMessage name={name}>
-    {(errMessage:string) => <div className="text-[10px] text-red-400">{errMessage}</div>}
+    {(errMessage:string) => <div className={cls}>{errMessage}</div>}
   </ErrorMessage>
 )
 

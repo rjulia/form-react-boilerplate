@@ -1,15 +1,13 @@
+import { FormFieldsType } from '../../components/form/form/type'
 import {styles} from './styles'
-const classInput = ""
-const classSelect = "col-span-2"
-const classDropZone = "col-span-2"
-const classTextarea = "col-span-2"
-const formFields = [{
+
+const formFields: Array<FormFieldsType> = [{
   label: 'Select',
   placeholder: 'select one option',
   formType: 'select',
   name: 'purpose',
   type: 'text',
-  class: classSelect,
+  className: styles['select'],
   options: [
     {
       value: "option one",
@@ -34,36 +32,38 @@ const formFields = [{
     formType: 'field',
     name: 'name',
     type: 'text',
-    class: styles['name'],
+    className: styles['name'],
   },
   {
     label: 'Email',
     formType: 'field',
     name: 'email',
     type: 'email',
-    class: classInput,
+    className: styles['email'],
   },
   {
     label: "Drop files",
     formType: 'drop',
     name: 'file',
     type: 'drop',
-    class: classDropZone,
-    accept: 'image/*',
+    className: styles['file'],
+    accept: {
+      'image/png': ['.png'],
+    },
   },
   {
     label: 'Message',
     formType: 'textarea',
     name: 'message',
-    rows: '5',
+    rows: 5,
     type: 'textarea',
-    class: classTextarea,
+    className: styles['message'],
   },
   {
     label: 'SUBMIT',
     formType: 'button',
     name: 'button',
-    class: classInput,
+    className: styles['button'],
   }
 ]
 

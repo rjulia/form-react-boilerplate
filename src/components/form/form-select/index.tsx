@@ -3,7 +3,6 @@ import React from 'react'
 import { Field } from 'formik'
 import Select, { SingleValue } from 'react-select'
 import FormikErrorMessage from '../form-input-error/index.js'
-import {customStyles} from './customSelectDropdown.js'
 
 type OptionType = {
   value?: string
@@ -15,15 +14,13 @@ interface FieldSelectPropsType<T> {
   type: string | undefined
   label?: string
   text?: string
-  className?: string | undefined
+  className: {[
+    key: string
+  ] : string | undefined };
   placeholder?: string
   comp?: React.FunctionComponent<T>
   options: Array<OptionType> | undefined
 }
-
-type FormState = {
-  fruit: OptionType | null;
-};
 
 function SelectField({
   options,
@@ -72,8 +69,8 @@ function FormikFieldSelect<T>({
   className,
 }: FieldSelectPropsType<T>) {
   return (
-    <div className={className}>
-      <label htmlFor={name} style={{ display: 'block' }}>
+    <div className={className.container}>
+      <label htmlFor={name} className={className.label}>
         {label}
       </label>
       <Field
@@ -84,7 +81,7 @@ function FormikFieldSelect<T>({
         options={options}
         placeholder={placeholder}
       />
-      <FormikErrorMessage name={name} />
+      <FormikErrorMessage name={name} cls={className.error}/>
     </div>
   )
 }

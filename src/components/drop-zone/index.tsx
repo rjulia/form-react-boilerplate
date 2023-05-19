@@ -13,10 +13,14 @@ type File = {
   lastModifiedDate: Date
 }
 interface DropzoneProps {
-  accept?: Accept;
+  accept: Accept | undefined;
   setFieldValue: (name: string, acceptedFiles: File[] | null | undefined) => Promise<void> | void;
   label?: string;
   name: string;
+  className: { [
+    key: string
+  ] : string | undefined };
+  
 }
 
 
@@ -26,6 +30,7 @@ function Dropzone({
   setFieldValue,
   label,
   name,
+  className,
 }: DropzoneProps) {
   const [myFiles, setMyFiles] = useState<File[] | null>([])
   const onDrop = useCallback((acceptedFiles: Blob[]) => {
@@ -57,8 +62,8 @@ function Dropzone({
   ))
 
   return (
-    <div>
-      <label htmlFor={name} style={{ display: 'block' }}>
+    <div className={className.container} >
+      <label htmlFor={name} className={className.label}>
         {label}
       </label>
       <div {...getRootProps({ className: 'dropzone' })}>

@@ -5,6 +5,9 @@ interface PropsType {
   light?: boolean
   disabled?: boolean
   type?: 'button' | 'submit' | 'reset'
+  className: {[
+    key: string
+  ] : string | undefined };
 }
 
 function Button({
@@ -12,16 +15,19 @@ function Button({
   onClick,
   disabled,
   type,
+  className
 }: PropsType) {
   return (
-    <button
-      type={type}
-      disabled={disabled}
-      onClick={onClick}
-      className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-    >
-      <span>{text}</span>
-    </button>
+    <div className={className.container}>
+      <button
+        type={type}
+        disabled={disabled}
+        onClick={onClick}
+        className={className.containerInput}
+      >
+        <span className={className.text}>{text}</span>
+      </button>
+    </div>
   )
 }
 
