@@ -1,4 +1,4 @@
-import { Formik, Form, FormikProps } from 'formik'
+import { Formik, Form } from 'formik'
 import _ from 'lodash'
 import Button from '../../button'
 import FormikField from '../form-input/index.js'
@@ -44,7 +44,7 @@ const LoginFormikComponents = ({
   formFields,
   isBeingSent,
   
-}: PropsType<any>
+}: PropsType
 
 ) => {
   const onSubmit = (values: ObjectOfAnyType) => {

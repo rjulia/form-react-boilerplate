@@ -28,7 +28,7 @@ export type ObjectOfAnyType = {
   [key: string]: string
 }
 
-export interface PropsType<T> {
+export interface PropsType {
   validationSchema: any
   initialValues: ObjectOfAnyType
   onHandelSubmit: (values: ObjectOfAnyType) => void
