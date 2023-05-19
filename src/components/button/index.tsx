@@ -1,6 +1,6 @@
 
 interface PropsType {
-  text?: string
+  label?: string
   onClick?: () => void
   light?: boolean
   disabled?: boolean
@@ -11,7 +11,7 @@ interface PropsType {
 }
 
 function Button({
-  text,
+  label,
   onClick,
   disabled,
   type,
@@ -25,10 +25,11 @@ function Button({
         onClick={onClick}
         className={className.containerInput}
       >
-        <span className={className.text}>{text}</span>
+        <span className={className.text}>{label}</span>
       </button>
     </div>
   )
 }
 
 export default Button
+

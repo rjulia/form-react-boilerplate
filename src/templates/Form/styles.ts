@@ -1,17 +1,14 @@
 export const styles = {
-  'name': {
+  'title': {
+    container: "col-span-2 text-left mt-5",
+    text: "text-2xl font-bold text-gray-800",
+  },
+  'field': {
       container: '',
       containerInput: 'border border-cyan-700  rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-50',
       text: 'font-light text-cyan-500 text-sm',
       input: 'font-normal text-gray-700 text-sm',
       error: 'font-normal text-red-500 text-xs block mt-2',
-  },
-  'email': {
-    container: '',
-    containerInput: 'border border-cyan-700 rounded-md py-2 px-4 leading-tight focus:outline-none focus:border-blue-50',
-    text: 'font-light text-cyan-500 text-sm',
-    input: 'font-normal text-gray-700 text-sm',
-    error: 'font-normal text-red-500 text-xs block mt-2',
   },
   'message': {
     container: 'col-span-2',

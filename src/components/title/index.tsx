@@ -2,12 +2,12 @@
 
 
 
-function Title({ className, text }: {className: { [
+function Title({ className, label }: {className: { [
   key: string
-] : string | undefined }, text: string | undefined}) {
+] : string | undefined }, label: string | undefined}) {
   return (
     <div className={className.container} >
-      <h3 className={className.text}>{text}</h3>
+      <h3 className={className.text}>{label}</h3>
     </div>
   )
 }

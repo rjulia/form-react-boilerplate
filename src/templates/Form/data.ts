@@ -1,7 +1,43 @@
 import { FormFieldsType } from '../../components/form/form/type'
 import {styles} from './styles'
 
-const formFields: Array<FormFieldsType> = [{
+const formFields: Array<FormFieldsType> = [
+  {
+    label: "LoginForm",
+    formType: 'title',
+    name: 'title',
+    type: 'text',
+    className: styles['title'],
+  },
+  {
+    label: "Name",
+    formType: 'field',
+    name: 'name',
+    type: 'text',
+    className: styles['field'],
+  },
+  {
+    label: 'Email',
+    formType: 'field',
+    name: 'email',
+    type: 'email',
+    className: styles['field'],
+  },
+  {
+    label: "Surname",
+    formType: 'field',
+    name: 'surname',
+    type: 'text',
+    className: styles['field'],
+  },
+  {
+    label: 'Address',
+    formType: 'field',
+    name: 'address',
+    type: 'text',
+    className: styles['field'],
+  },
+  {
   label: 'Select',
   placeholder: 'select one option',
   formType: 'select',
@@ -27,19 +63,6 @@ const formFields: Array<FormFieldsType> = [{
     },
     
   ],
-  },{
-    label: "Name",
-    formType: 'field',
-    name: 'name',
-    type: 'text',
-    className: styles['name'],
-  },
-  {
-    label: 'Email',
-    formType: 'field',
-    name: 'email',
-    type: 'email',
-    className: styles['email'],
   },
   {
     label: "Drop files",
@@ -61,7 +84,8 @@ const formFields: Array<FormFieldsType> = [{
   },
   {
     label: 'SUBMIT',
-    formType: 'button',
+    formType: 'button', 
+    type: 'submit',
     name: 'button',
     className: styles['button'],
   }
