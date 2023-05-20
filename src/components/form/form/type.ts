@@ -10,10 +10,10 @@ export type ClassType = {
   [others: string]: any;
 }
 export type validationType = {
-  required?: string
+  required?: boolean
   email?: string
-  min?: string
-  max?: string
+  minLength?: string
+  maxLength?: string
   pattern?: string
   [others: string]: any;
 }

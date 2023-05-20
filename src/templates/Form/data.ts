@@ -15,10 +15,6 @@ const formFields: Array<FormFieldsType> = [
     name: 'name',
     type: 'text',
     className: styles['field'],
-    validation: {
-      required: 'This field is required',
-      name: 'name',
-    }
   },
   {
     label: 'Email',
@@ -27,7 +23,7 @@ const formFields: Array<FormFieldsType> = [
     type: 'email',
     className: styles['field'],
     validation:  {
-      required: 'This field is required',
+      required: true,
       email: 'Please enter a valid email address',
     }
   },
