@@ -72,7 +72,7 @@ const LoginFormikComponents = ({
               })
             }
           </div>
-          {/* <pre>{JSON.stringify(formik, null, 4)}</pre> */}
+          <pre>{JSON.stringify(formik, null, 4)}</pre> 
         </Form>
       )}
     </Formik>

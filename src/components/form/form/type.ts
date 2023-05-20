@@ -9,6 +9,14 @@ export type ClassType = {
   error?: string
   [others: string]: any;
 }
+export type validationType = {
+  required?: string
+  email?: string
+  min?: string
+  max?: string
+  pattern?: string
+  [others: string]: any;
+}
 
 export type FormFieldsType = {
   formType: string
@@ -23,6 +31,7 @@ export type FormFieldsType = {
   rows?: number
   options?: Array<{value: string, label: string}>
   accept?: Accept | undefined
+  validation?: validationType
 }
 export type ObjectOfAnyType = {
   [key: string]: string
