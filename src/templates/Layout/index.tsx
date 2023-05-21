@@ -24,7 +24,7 @@ function Layout() {
               <li>
                 <NavLink
                   className={'[&.active]:text-sky-700  block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-sky-400  md:p-0 dark:text-white md:dark:text-blue-500'}
-                  to="/form">Form</NavLink>
+                  to="/form/view-forms">Forms</NavLink>
               </li>
 
             </ul>
@@ -32,7 +32,7 @@ function Layout() {
         </div>
       </nav>
       <hr />
-      <div className="container m-auto">
+      <div className="max-w-screen-xl m-auto p-4">
         <Outlet />
 
       </div>
