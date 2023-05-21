@@ -1,3 +1,4 @@
+import * as Yup from 'yup';
 
 import {  Accept } from 'react-dropzone'
 
@@ -10,10 +11,12 @@ export type ClassType = {
   [others: string]: any;
 }
 export type validationType = {
+  type: string; 
+  message?: string
   required?: boolean
-  email?: string
-  minLength?: string
-  maxLength?: string
+  email?: boolean
+  min?: number
+  max?: number
   pattern?: string
   [others: string]: any;
 }
