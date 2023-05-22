@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from 'react'
 import HomeView from './home-view'
-import { getHomePage, GetHomePageResponse } from '../../utils'
+import { getPage, GetPageResponse } from '../../utils'
 import { DataResponde, PropsPage } from '../../types'
 
 
@@ -13,10 +13,10 @@ function HomeController() {
 
   useEffect(() => {
     setLoading(true)
-    getHomePage('home').then((res: GetHomePageResponse | string) => {
+    getPage('home').then((res: GetPageResponse | string) => {
       if (typeof res === 'string') return
       setData(res)
-    }).catch((err) => {
+    }).catch((err:string) => {
       console.log("🚀 ~ file: home-controller.tsx:8 ~ HomeController ~ err", err)
     }).finally(() => {
       setLoading(false)

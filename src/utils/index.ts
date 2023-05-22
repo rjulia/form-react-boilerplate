@@ -15,17 +15,17 @@ export function getStrapiURL(path:string) {
   return `${process.env.GATSBY_API_URL || 'http://localhost:1337'}/api${path}`
 }
 
-export type GetHomePageResponse = {
+export type GetPageResponse = {
   data: Data;
   meta?: unknown;
   status: number;
 };
 
-async function getHomePage(slug:string): Promise<GetHomePageResponse | string> {
+async function getPage(slug:string): Promise<GetPageResponse | string> {
   try {
     // 👇️ const data: getHomePageResponse
     const url = getStrapiURL(`/${slug}?populate=deep,3`);
-    const { data, status } = await axios.get<GetHomePageResponse>(
+    const { data, status } = await axios.get<GetPageResponse>(
       url,
       {
         headers: {
@@ -51,5 +51,5 @@ async function getHomePage(slug:string): Promise<GetHomePageResponse | string> {
 }
 
 export {
-  getHomePage,
+  getPage,
 }

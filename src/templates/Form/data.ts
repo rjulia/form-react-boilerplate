@@ -38,8 +38,6 @@ const formFields: Array<FormFieldsType> = [
     validation:  {
       type: 'number',
       required: false,
-      min: 3,
-      max: 10,
     }
   },
   {

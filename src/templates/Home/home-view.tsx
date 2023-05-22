@@ -11,9 +11,7 @@ function HomeView({
   data: Data
   loading: boolean
 }) {
-  console.log("🚀 ~ file: home-view.tsx:13 ~ data:", data)
   const blocks: BlockBuilder[] = _.get(data, 'attributes.blocks', []) as BlockBuilder[]
-  console.log("🚀 ~ file: home-view.tsx:18 ~ blocks:", blocks)
   if(loading) return <Spinner loading={loading} />
   if(!data) return null
 
