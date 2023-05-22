@@ -1,5 +1,3 @@
-import * as Yup from 'yup';
-
 import {  Accept } from 'react-dropzone'
 
 export type ClassType = {

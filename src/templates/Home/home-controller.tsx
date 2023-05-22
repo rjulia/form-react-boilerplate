@@ -1,36 +1,42 @@
-import React, { useEffect, useState } from 'react'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { useEffect, useState } from 'react'
 import HomeView from './home-view'
 import { getHomePage, GetHomePageResponse } from '../../utils'
 import { Data } from '../../types'
 
-interface DataResponde {
+export interface DataResponde {
   data: Data
   status: number
 }
 
+type Props ={
+  data: Data
+  loading: boolean
+}
+
 function HomeController() {
   const [data, setData] = useState<DataResponde>({} as DataResponde)
-  const [lodaing, setLodaing] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(true)
 
  
 
   useEffect(() => {
-    setLodaing(true)
-    const resp = getHomePage().then((res: GetHomePageResponse | string ) => {
+    setLoading(true)
+    getHomePage().then((res: GetHomePageResponse | string ) => {
       console.log("🚀 ~ file: home-controller.tsx:8 ~ HomeController ~ res", res)
       if(typeof res === 'string') return
       setData(res)
     }).catch((err) => {
       console.log("🚀 ~ file: home-controller.tsx:8 ~ HomeController ~ err", err)
     }).finally(() => {
-      setLodaing(false)
+      setLoading(false)
     })
   }, [])
 
 
-  const viewProps = {
-    data,
-    lodaing,
+  const viewProps: Props = {
+    data:data.data,
+    loading,
   }
   return (
     <HomeView  {...viewProps}/>
