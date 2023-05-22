@@ -12,14 +12,17 @@ function HeroImage({
 }) {
   return (
     <div
-      className="relative bg-white overflow-hidden rounded-lg bg-cover bg-center my-5"
+      className="relative overflow-hidden rounded-lg bg-cover bg-center my-5"
       style={{
         height: 'calc(50vh - 64px)',
         backgroundImage: `url(${getStrapiMedia(_.get(image, 'data.attributes.url'))}`,
       }}
     >
       <div className='text-right p-5'>
-        <MarkdownPreview source={title} />
+        <MarkdownPreview 
+          prefixCls="markdown"
+          source={title} 
+        />
       </div>
     </div>
   )

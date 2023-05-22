@@ -8,6 +8,15 @@ export type Data = {
     [key: string]: string;
   };
 };
+export interface DataResponde {
+  data: Data
+  status: number
+}
+
+export interface PropsPage {
+  data: Data
+  loading: boolean
+}
 
 export interface BlockBuilder {
   id: number;

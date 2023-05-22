@@ -25,7 +25,7 @@ function Button({
         onClick={onClick}
         className={className.containerInput}
       >
-        <span className={className.text}>{label}</span>
+        <span className={className.label}>{label}</span>
       </button>
     </div>
   )

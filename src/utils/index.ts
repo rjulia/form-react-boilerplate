@@ -21,10 +21,10 @@ export type GetHomePageResponse = {
   status: number;
 };
 
-async function getHomePage(): Promise<GetHomePageResponse | string> {
+async function getHomePage(slug:string): Promise<GetHomePageResponse | string> {
   try {
     // 👇️ const data: getHomePageResponse
-    const url = getStrapiURL('/home?populate=deep,3');
+    const url = getStrapiURL(`/${slug}?populate=deep,3`);
     const { data, status } = await axios.get<GetHomePageResponse>(
       url,
       {

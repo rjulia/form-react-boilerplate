@@ -7,7 +7,7 @@ function Title({ className, label }: {className: { [
 ] : string | undefined }, label: string | undefined}) {
   return (
     <div className={className.container} >
-      <h3 className={className.text}>{label}</h3>
+      <h3 className={className.label}>{label}</h3>
     </div>
   )
 }

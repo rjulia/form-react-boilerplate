@@ -24,7 +24,7 @@ function FormikField({
       <Field name={name}>
         {(formikField: FieldProps) => (
           <>
-            <label htmlFor={name} className={className.text}>
+            <label htmlFor={name} className={className.label}>
               {label}
             </label>
            
