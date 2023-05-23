@@ -8,11 +8,9 @@ import formFields from './data'
 import validationFromObject from "./validationFromObject"
 
 
-function FormPage() {
-  // const contactFormSchema = Yup.object().shape({
-  //   name: Yup.string().required('Required'),
-  //   email: Yup.string().email('Invalid email').required('Required'),
-  // })
+function FormPage(props:any) {
+  console.log("🚀 ~ file: index.tsx:12 ~ FormPage ~ props:", props)
+
 
   const contactFormSchema = validationFromObject(_.reduce(
     formFields,

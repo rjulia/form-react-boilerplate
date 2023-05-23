@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Data } from '../types';
+import { DataResponde } from '../types';
 
 export function getStrapiMedia(url:string) {
   if (url == null) {
@@ -15,17 +15,12 @@ export function getStrapiURL(path:string) {
   return `${process.env.GATSBY_API_URL || 'http://localhost:1337'}/api${path}`
 }
 
-export type GetPageResponse = {
-  data: Data;
-  meta?: unknown;
-  status: number;
-};
 
-async function getPage(slug:string): Promise<GetPageResponse | string> {
+async function getPage(slug:string): Promise<DataResponde | string> {
   try {
     // 👇️ const data: getHomePageResponse
     const url = getStrapiURL(`/${slug}?populate=deep,3`);
-    const { data, status } = await axios.get<GetPageResponse>(
+    const { data, status } = await axios.get<DataResponde>(
       url,
       {
         headers: {

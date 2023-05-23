@@ -41,17 +41,17 @@ function SelectField({
     if (selected === null || selected === "") {
       return;
     }
-    return form.setFieldValue(inputField.name, selected)
+    return form.setFieldValue(field.name, selected)
   }
 
   return (
   <Select
     options={options}
     placeholder={placeholder}
-    name={inputField.name}
-    value={options ? options.find((option:OptionType) => option.value === inputField.value) : ''}
+    name={field.name}
+    value={options ? options.find((option:OptionType) => option.value === field.value) : ''}
     onChange={OnChangeValue}
-    onBlur={inputField.onBlur}
+    onBlur={field.onBlur}
     // styles={customStyles}
   />
 )

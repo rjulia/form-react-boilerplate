@@ -1,5 +1,5 @@
 
-export type Data = {
+export interface Data {
   id: number;
   attributes: {
     createdAt: string;
@@ -7,14 +7,16 @@ export type Data = {
     publishedAt: string;
     [key: string]: string;
   };
-};
+}
 export interface DataResponde {
-  data: Data
+  data: Data | Data[]
   status: number
+  meta?: unknown
 }
 
 export interface PropsPage {
   data: Data
+  dataForms?: Data[]
   loading: boolean
 }
 

@@ -18,7 +18,6 @@ const Block = ({ block, ...rest }: {
   [key: string]: any
 }) => {
   const { __component } = block
-  console.log("🚀 ~ file: index.tsx:21 ~ block:", block)
   const Component = lookup[__component]
   const props = { ...block, ...rest }
 
@@ -31,7 +30,6 @@ const BlockManager = ({
 }: {
   blocks: BlockBuilder[]
 }) => {
-  console.log("🚀 ~ file: index.tsx:34 ~ blocks:", blocks)
   return (
     <div className='flex flex-col w-full'>
       {blocks.map((block) => <Block key={Math.random()} block={block} {...rest} />)}
