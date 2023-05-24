@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Layout from './templates/Layout'
 import Home from './templates/Home'
-import Form from './templates/Form'
+import Form from './templates/Form/'
 import ErrorPage from './templates/ErrorPage'
 import FormPage from './templates/FormPage'
 import './index.css'

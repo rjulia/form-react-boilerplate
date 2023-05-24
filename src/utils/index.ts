@@ -45,6 +45,37 @@ async function getPage(slug:string): Promise<DataResponde | string> {
   }
 }
 
+async function getFornById(id:string): Promise<any | string> {
+  try {
+    // 👇️ const data: getHomePageResponse
+    const url = getStrapiURL(`/forms/${id}?populate=deep,3`);
+    const { data, status } = await axios.get<any>(
+      url,
+      {
+        headers: {
+          Accept: 'application/json',
+        },
+      },
+      );
+      
+      console.log("🚀 ~ file: index.ts:53 ~ getFornById ~ data:", data)
+    return {
+      data: data.data,
+      meta: data.meta,
+      status,
+    };
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.log('error message: ', error.message);
+      return error.message;
+    } else {
+      console.log('unexpected error: ', error);
+      return 'An unexpected error occurred';
+    }
+  }
+}
+
 export {
   getPage,
+  getFornById,
 }

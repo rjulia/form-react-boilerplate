@@ -15,8 +15,6 @@ function FormPAgeView({
   dataForms?: Data[]
   loading: boolean
 }) {
-  console.log("🚀 ~ file: form-page-view.tsx:17 ~ dataForms:", dataForms)
-
   
   const blocks: BlockBuilder[] = _.get(data, 'attributes.blocks', []) as BlockBuilder[]
   if (loading) return <Spinner loading={loading} />

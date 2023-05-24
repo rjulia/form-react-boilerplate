@@ -1,4 +1,5 @@
 import {  Accept } from 'react-dropzone'
+import { ObjectSchema } from 'yup'
 
 export type ClassType = {
   container?: string
@@ -39,7 +40,7 @@ export type ObjectOfAnyType = {
 }
 
 export interface PropsType {
-  validationSchema: any
+  validationSchema?: ObjectSchema<any>
   initialValues: ObjectOfAnyType
   onHandelSubmit: (values: ObjectOfAnyType) => void
   formFields: Array<FormFieldsType>

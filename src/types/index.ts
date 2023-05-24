@@ -1,11 +1,31 @@
 
+interface Fields {
+  name: string;
+  type: string;
+  label: string;
+  formType: string;
+  className: string;
+  validation?: {
+    type: string;
+    required: boolean;
+    email?: boolean;
+    message?: string;
+    min?: number;
+    max?: number;
+  };
+  options?: {
+    value: string;
+    label: string;
+  }[];  
+}
 export interface Data {
   id: number;
   attributes: {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
-    [key: string]: string;
+    fields: Fields[];
+    [key: string]: string | Fields[] | unknown;
   };
 }
 export interface DataResponde {

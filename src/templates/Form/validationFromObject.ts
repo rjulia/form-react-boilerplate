@@ -40,10 +40,10 @@ const validationFromObject = (validationObject:validationType) => {
         if(rules.email) {
           fieldSchema= fieldSchema.email(`${key} must be a valid email`);
         }
-        if(rules.type === 'array' && rules.of) {
+        if(rules.type === 'array') {
           fieldSchema = fieldSchema.of(validationFromObject(rules.of))
         }
-        if(rules.type === 'object' && rules.shape) {
+        if(rules.type === 'object') {
           fieldSchema = fieldSchema.shape(validationFromObject(rules.shape))
         }
 

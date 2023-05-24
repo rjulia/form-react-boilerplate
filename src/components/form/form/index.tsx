@@ -50,6 +50,7 @@ const LoginFormikComponents = ({
   const onSubmit = (values: ObjectOfAnyType) => {
     onHandelSubmit(values)
   }
+  if(!formFields && !initialValues) return null
   return (
     <Formik
       initialValues={initialValues}
