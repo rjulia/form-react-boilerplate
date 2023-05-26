@@ -3,6 +3,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply text-6xl font-bold text-cyan-100;
+  }
+  h3 {
+    @apply text-2xl font-bold text-cyan-700 my-10;
+  }
+  p {
+    @apply text-base font-normal text-gray-500 leading-7 mb-4;
+  }
+  .markdown ul {
+    @apply text-base font-normal text-gray-500 leading-7 ml-8 list-disc mb-4;
+  }
+  .markdown li {
+    @apply text-base font-normal text-gray-500 leading-7;
+  }
+}
 
 body {
   font-family: 'Roboto Mono', sans-serif;

@@ -50,6 +50,7 @@ const LoginFormikComponents = ({
   const onSubmit = (values: ObjectOfAnyType) => {
     onHandelSubmit(values)
   }
+  if(!formFields && !initialValues) return null
   return (
     <Formik
       initialValues={initialValues}
@@ -72,7 +73,7 @@ const LoginFormikComponents = ({
               })
             }
           </div>
-          {/* <pre>{JSON.stringify(formik, null, 4)}</pre> */}
+          <pre>{JSON.stringify(formik, null, 4)}</pre> 
         </Form>
       )}
     </Formik>
