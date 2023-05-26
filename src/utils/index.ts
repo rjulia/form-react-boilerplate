@@ -8,11 +8,11 @@ export function getStrapiMedia(url:string) {
   if (url.startsWith('http') || url.startsWith('//')) {
     return url
   }
-  return `${process.env.REACT_APP_URL || 'http://localhost:1337'}${url}`
+  return `${import.meta.env.VITE_URL || 'http://localhost:1337'}${url}`
 }
 
 export function getStrapiURL(path:string) {
-  return `${process.env.REACT_APP_URL || 'http://localhost:1337'}/api${path}`
+  return `${import.meta.env.VITE_URL || 'http://localhost:1337'}/api${path}`
 }
 
 
