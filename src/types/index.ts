@@ -25,7 +25,8 @@ export interface Data {
     updatedAt: string;
     publishedAt: string;
     fields: Fields[];
-    [key: string]: string | Fields[] | unknown;
+    name: string;
+    [key: string]: string | Fields[];
   };
 }
 export interface DataResponde {

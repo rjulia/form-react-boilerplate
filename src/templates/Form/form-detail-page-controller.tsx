@@ -1,4 +1,4 @@
-import { Form, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import _ from 'lodash'
 import { ObjectSchema } from 'yup'
 import {
@@ -6,10 +6,9 @@ import {
   validationType,
 } from '../../components/form/form/type'
 import { useEffect, useState } from 'react'
-import formFields from './data'
 import validationFromObject from "./validationFromObject"
 import { getFornById } from '../../utils'
-import { Data, DataResponde } from "../../types"
+import { DataResponde } from "../../types"
 import FormDetailPageView from './form-detail-page-view'
 import { FormFieldsType } from '../../components/form/form/type'
 
@@ -20,6 +19,7 @@ export type FormDetailPageControllerProps = {
   onHandelSubmit: (values: ObjectOfAnyType) => void
   formFields: FormFieldsType[]
   isBeingSent: boolean
+  loading: boolean
 }
 
 function FormPage() {
@@ -92,8 +92,8 @@ function FormPage() {
     onHandelSubmit,
     formFields: data,
     isBeingSent,
+    loading,
   }
-  console.log("🚀 ~ file: form-detail-page-controller.tsx:96 ~ FormPage ~ viewProps: FormDetailPageControllerProps.initialValues:", initialValues)
 
   return <FormDetailPageView {...viewProps} />
 }

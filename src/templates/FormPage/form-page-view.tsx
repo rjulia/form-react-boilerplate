@@ -34,7 +34,7 @@ function FormPAgeView({
                 key={form.id}
                 className="text-sm font-bold text-gray-700">
                   <Link to={`/form/${form.id}`}>
-                    {form.attributes.name}
+                    <span>{form.attributes.name}</span>
                   </Link>
               </li>
             )
