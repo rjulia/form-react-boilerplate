@@ -7,13 +7,31 @@ export default {
   safelist: [
     'w-full',
     {
-      pattern: /bg-+/, // 👈  This includes bg of all colors and shades
+      pattern: /bg-+/, 
     },
     {
-      pattern: /text-+/, // 👈  This includes bg of all colors and shades
+      pattern: /text-+/, 
     },
     {
-      pattern: /border-+/, // 👈  This includes bg of all colors and shades
+      pattern: /border-+/, 
+    },
+    {
+      pattern: /w-+/, 
+    },
+    {
+      pattern: /max-w-+/, 
+    },
+    {
+      pattern: /h-+/, 
+    },
+    {
+      pattern: /max-h-+/, 
+    },
+    {
+      pattern: /m{t|r|b|l}-{size}/, 
+    },
+    {
+      pattern: /p{t|r|b|l}-{size}/, 
     },
   ],
   theme: {

@@ -36,10 +36,10 @@ async function getPage(slug:string): Promise<DataResponde | string> {
     };
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      console.log('error message: ', error.message);
+      console.error('error message: ', error.message);
       return error.message;
     } else {
-      console.log('unexpected error: ', error);
+      console.error('unexpected error: ', error);
       return 'An unexpected error occurred';
     }
   }
@@ -58,7 +58,6 @@ async function getFornById(id:string): Promise<any | string> {
       },
       );
       
-      console.log("🚀 ~ file: index.ts:53 ~ getFornById ~ data:", data)
     return {
       data: data.data,
       meta: data.meta,
@@ -66,10 +65,10 @@ async function getFornById(id:string): Promise<any | string> {
     };
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      console.log('error message: ', error.message);
+      console.error('error message: ', error.message);
       return error.message;
     } else {
-      console.log('unexpected error: ', error);
+      console.error('unexpected error: ', error);
       return 'An unexpected error occurred';
     }
   }

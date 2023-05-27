@@ -26,7 +26,7 @@ function FormPAgeView({
         {blocks && <BlockManager blocks={blocks} />}
       </div>
       <div>
-      <ul className="list-disc list-inside">
+      <ul className="list-inside">
         {
           dataForms && dataForms.map((form: Data) => {
             return (
@@ -34,7 +34,7 @@ function FormPAgeView({
                 key={form.id}
                 className="text-xl font-bold text-gray-700">
                   <Link to={`/form/${form.id}`}>
-                    <span className='text-xl'>{form.attributes.name}</span>
+                    <span className='text-3xl text-cyan-700 hover:text-cyan-300'>{form.attributes.name}</span>
                   </Link>
               </li>
             )

@@ -1,6 +1,7 @@
 /* eslint-disable no-prototype-builtins */
 import * as Yup from 'yup';
-import {
+import _ from 'lodash';
+import {  
   validationType,
 } from '../components/form/form/type'
 interface ValidationMap {
@@ -40,10 +41,10 @@ const validationFromObject = (validationObject:validationType) => {
         if(rules.email) {
           fieldSchema= fieldSchema.email(`${key} must be a valid email`);
         }
-        if(rules.type === 'array') {
+        if(rules.array) {
           fieldSchema = fieldSchema.of(validationFromObject(rules.of))
         }
-        if(rules.type === 'object') {
+        if(rules.object) {
           fieldSchema = fieldSchema.shape(validationFromObject(rules.shape))
         }
 
@@ -52,7 +53,13 @@ const validationFromObject = (validationObject:validationType) => {
         }
 
         if(rules.oneOf) {
-          fieldSchema = fieldSchema.oneOf(rules.oneOf)
+          const oneOf:any = rules.oneOf.split(',').map((item:string | boolean) => {
+            if(item === 'false') return false;
+            if(item === 'true') return true;
+            return item;
+          })
+          console.log("🚀 ~ file: validation-from-object.ts:60 ~ constoneOf:string[]|boolean[]=rules.oneOf.split ~ oneOf:", _.flatMap(oneOf))
+          fieldSchema = fieldSchema.oneOf(_.compact(oneOf), rules.message)
         }
         if(rules.notOneOf) {
           fieldSchema = fieldSchema.notOneOf(rules.notOneOf)

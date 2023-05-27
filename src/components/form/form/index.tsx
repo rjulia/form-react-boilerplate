@@ -5,6 +5,7 @@ import FormikField from '../form-input/index.js'
 import FormikFieldTextArea from '../form-textarea/index.jsx'
 import FormikFieldSelect from '../form-select/index.jsx'
 import DropZone from '../../drop-zone'
+import BooleanInput from '../form-input-boolean/index.jsx'
 
 import {
   FormFieldsType,
@@ -25,6 +26,7 @@ const lookup: ComponentType = {
   'select': FormikFieldSelect,
   'drop': DropZone,
   'button': Button,
+  'boolean': BooleanInput,
 }
 
 const Block = ({ field, ...rest }: {
@@ -73,7 +75,10 @@ const LoginFormikComponents = ({
               })
             }
           </div>
-          <pre>{JSON.stringify(formik, null, 4)}</pre> 
+          <div className='mt-10 border-full bg-stone-100 p-5'>
+            <h4 className='text-stone-500 text-xl mb-4'>Formik helper</h4>
+            <pre className='text-xs'>{JSON.stringify(formik, null, 4)}</pre> 
+          </div>
         </Form>
       )}
     </Formik>

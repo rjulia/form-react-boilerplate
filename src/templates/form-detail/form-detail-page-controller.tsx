@@ -53,7 +53,7 @@ function FormPage() {
     const initialValues = _.reduce(
       data,
       (acc, field) => {
-        if(field.formType !== 'title') {
+        if(field.formType !== 'title' && field.formType !== 'button') {
           const { name } = field
           acc[name] = ""
           return acc
@@ -66,8 +66,7 @@ function FormPage() {
       data,
       (acc, field) => {
         const { name, validation, formType } = field
-        if(validation && formType !== 'title') {
-          console.log("🚀 ~ file: form-detail-page-controller.tsx:69 ~ useEffect ~ validation:", validation)
+        if(validation && formType !== 'title' && field.formType !== 'button') {
           acc[name] = validation as { [key: string]: any}
           return acc
         }

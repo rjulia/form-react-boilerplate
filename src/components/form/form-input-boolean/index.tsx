@@ -1,51 +1,49 @@
 import { Field, FieldProps } from 'formik'
 import FormikErrorMessage from '../form-input-error/index.jsx'
-
 interface FieldPropsType {
   name: string
   type?: string
   label?: string
   className: {
-    [key: string] : string | undefined 
+    [key: string]: string | undefined
   }
   placeholder?: string
 }
 
-function FormikField({
-  name, 
-  type, 
-  label, 
-  placeholder, 
+function BooleanInput({ name,
+  type,
+  label,
+  placeholder,
   className,
 }: FieldPropsType) {
 
+  // const validationSchema = yup.object({
+  //   [name]: yup.boolean().required("The field is required"),
+  // });
+
   return (
-    <div className={className.container} >
+    <div className={className?.container} >
       <Field name={name}>
         {(formikField: FieldProps) => (
-          <div className={className.containerInput}>
-            <label htmlFor={name} className={className.label}>
-              {label}
-            </label>
-           
+          <div className="flex items-center">
             <input
-              type={type}
               id={name}
-              className={className.input}
+              type={type}
               placeholder={placeholder}
               {...formikField.field}
               defaultChecked={formikField.field.value}
+              className={className?.input}
             />
-              
-            <FormikErrorMessage name={name} cls={className.error} />
-            {/* <pre>{JSON.stringify(formikField, null, 4)}</pre> */}
+            <label htmlFor={name} className={className?.label}>
+              {label}
+            </label>
+            <FormikErrorMessage name={name} cls={className?.error} />
           </div>
         )}
       </Field>
 
     </div>
-
-  )
+  );
 }
 
-export default FormikField
+export default BooleanInput;

@@ -28,7 +28,7 @@ const FromPageController = () => {
 
         }
       }).catch((err) => {
-        console.log("🚀 ~ file: home-controller.tsx:8 ~ HomeController ~ err", err)
+        console.error("🚀 ~ file: home-controller.tsx:8 ~ HomeController ~ err", err)
       }).finally(() => {
         setLoading(false)
       })
