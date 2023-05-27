@@ -5,7 +5,6 @@ import FormikField from '../form-input/index.js'
 import FormikFieldTextArea from '../form-textarea/index.jsx'
 import FormikFieldSelect from '../form-select/index.jsx'
 import DropZone from '../../drop-zone'
-import BooleanInput from '../form-input-boolean/index.jsx'
 
 import {
   FormFieldsType,
@@ -26,7 +25,6 @@ const lookup: ComponentType = {
   'select': FormikFieldSelect,
   'drop': DropZone,
   'button': Button,
-  'boolean': BooleanInput,
 }
 
 const Block = ({ field, ...rest }: {
