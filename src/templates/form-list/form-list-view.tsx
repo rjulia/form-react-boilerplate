@@ -32,9 +32,9 @@ function FormPAgeView({
             return (
               <li 
                 key={form.id}
-                className="text-sm font-bold text-gray-700">
+                className="text-xl font-bold text-gray-700">
                   <Link to={`/form/${form.id}`}>
-                    <span>{form.attributes.name}</span>
+                    <span className='text-xl'>{form.attributes.name}</span>
                   </Link>
               </li>
             )

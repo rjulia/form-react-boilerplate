@@ -8,9 +8,9 @@ import {
 } from "react-router-dom";
 import Layout from './templates/Layout'
 import Home from './templates/Home'
-import Form from './templates/Form/'
-import ErrorPage from './templates/ErrorPage'
-import FormPage from './templates/FormPage'
+import Form from './templates/form-detail'
+import ErrorPage from './templates/error-page'
+import FormPage from './templates/form-list'
 import './index.css'
 
 const router = createBrowserRouter(

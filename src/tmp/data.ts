@@ -1,4 +1,4 @@
-import { FormFieldsType } from '../../components/form/form/type'
+import { FormFieldsType } from '../components/form/form/type'
 import {styles} from './styles'
 
 const formFields: Array<FormFieldsType> = [

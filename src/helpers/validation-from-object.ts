@@ -2,7 +2,7 @@
 import * as Yup from 'yup';
 import {
   validationType,
-} from '../../components/form/form/type'
+} from '../components/form/form/type'
 interface ValidationMap {
   [key: string]: () => Yup.Maybe<any>;
 }

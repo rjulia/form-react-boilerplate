@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import FormPageView from './form-page-view'
+import FormPageView from './form-list-view'
 import { getPage } from '../../utils'
 import { DataResponde, PropsPage, Data } from '../../types'
 

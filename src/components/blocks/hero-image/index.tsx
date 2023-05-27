@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import _ from 'lodash'
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import { getStrapiMedia } from '../../../utils'
@@ -10,6 +11,7 @@ function HeroImage({
   image: Image;
   title: string;
 }) {
+
   return (
     <div
       className="relative overflow-hidden rounded-lg bg-cover bg-center my-5"
@@ -22,6 +24,12 @@ function HeroImage({
         <MarkdownPreview 
           prefixCls="markdown"
           source={title} 
+          rehypeRewrite={(node, _index, parent)=> {
+            // @ts-expect-error
+            if (node.tagName === "a" && parent && /^h(1|2|3|4|5|6)/.test(parent.tagName)) {
+              parent.children = parent.children.slice(1)
+            }
+          }}
         />
       </div>
     </div>

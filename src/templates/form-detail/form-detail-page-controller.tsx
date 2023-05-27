@@ -6,7 +6,7 @@ import {
   validationType,
 } from '../../components/form/form/type'
 import { useEffect, useState } from 'react'
-import validationFromObject from "./validationFromObject"
+import validationFromObject from "../../helpers/validation-from-object"
 import { getFornById } from '../../utils'
 import { DataResponde } from "../../types"
 import FormDetailPageView from './form-detail-page-view'
