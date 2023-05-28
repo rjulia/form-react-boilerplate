@@ -6,8 +6,8 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Layout from './templates/layout'
-import Home from './templates/home'
+import Layout from './templates/layout/index.tsx'
+import Home from './templates/home/index.ts'
 import Form from './templates/form-detail'
 import ErrorPage from './templates/error-page'
 import FormPage from './templates/form-list'
