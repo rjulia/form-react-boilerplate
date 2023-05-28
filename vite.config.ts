@@ -7,5 +7,11 @@ export default defineConfig({
   plugins: [react(), svgr()],
   define: {
     'process.env': {}
-  }
+  },
+  build: {
+    commonjsOptions: {
+      transformMixedEsModules: true,
+      // include: [/linked-dep/, /node_modules/],
+    },
+  },
 })

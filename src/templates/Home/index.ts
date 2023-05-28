@@ -1,3 +1,3 @@
-import HomeController from "./home-controller";
+import Home from "./home-controller";
 
-export default HomeController;
+export default Home;
